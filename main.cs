@@ -15,8 +15,9 @@ class Program {
     };
 
     Matrices matrix = new Matrices();
+    matrix.determinant2(matrix1);
     matrix.multiply(matrix1,matrix2);
-
+    
   }
 }
 
@@ -43,5 +44,12 @@ class Matrices{
       }
       Console.WriteLine();
     }
+  }
+
+  public void determinant2(int[,] matrix2b2){
+    int det;
+    det = (matrix2b2[0,0]*matrix2b2[1,1]) - (matrix2b2[0,1]*matrix2b2[1,0]);
+
+    Console.WriteLine("Determinant = " + det);
   }
 }
