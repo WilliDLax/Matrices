@@ -14,18 +14,30 @@ class Program {
       {5,6}
     };
 
-    int matrix1rows = matrix1.GetLength(0);
-    int matrix1cols = matrix1.GetLength(1);
-    int matrix2rows = matrix2.GetLength(0);
-    int matrix2cols = matrix2.GetLength(1);
+    Matrices matrix = new Matrices();
+    matrix.multiply(matrix1,matrix2);
 
-    int[,] product = new int[matrix1rows,matrix2cols];
+  }
+}
 
-    for(int i= 0; i<matrix1rows; i++){
-      for(int j=0; j<matrix2cols; j++){
-        for(int k=0; k<matrix1cols; k++){
-          product[i,j] += matrix1[i,k] * matrix2[k,j];
-        
+class Matrices{
+  public void multiply(int[,] firstMat, int[,] secondMat){
+    int firstMatRows = firstMat.GetLength(0);
+    int firstMatCols = firstMat.GetLength(1);
+    int secondMatRows = secondMat.GetLength(0);
+    int secondMatCols = secondMat.GetLength(1);
+
+    if(firstMatCols != secondMatRows){
+      Console.WriteLine("The 2 matrices cannot be multiplied");
+      return;
+    }
+
+    int[,] product = new int[firstMatRows,secondMatCols];
+
+    for(int i= 0; i<firstMatRows; i++){
+      for(int j=0; j<secondMatCols; j++){
+        for(int k=0; k<firstMatCols; k++){
+          product[i,j] += firstMat[i,k] * secondMat[k,j];
         }
         Console.Write(" "+product[i,j]);
       }
