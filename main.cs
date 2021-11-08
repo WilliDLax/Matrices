@@ -2,7 +2,7 @@ using System;
 
 class Program {
   public static void Main (string[] args) {
-    Console.WriteLine ("Working with 2 dim arrays");
+    Console.WriteLine ("Working with 2 dim arrays and matrices");
 
     int[,] matrix1 = new int[,]{
       {1,2},
